@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pourim 5786 – Mahatsit HaShekel & Matanot LaEvionim | Orot veKelim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-deep: #0A1628;
+    --blue-dark: #0F2347;
+    --blue-mid: #1A3A6E;
+    --blue-flag: #0038B8;
+    --blue-light: #4A7DD7;
+    --blue-pale: #E8F0FC;
+    --blue-ghost: #F3F7FE;
+    --gold: #C8A246;
+    --gold-dark: #A6832D;
+    --gold-light: #E8D5A0;
+    --gold-glow: #FDF6E3;
+    --white: #FFFFFF;
+    --cream: #FAFBFE;
+    --text-dark: #0F1A2E;
+    --text-mid: #4A5568;
+    --text-light: #8A94A6;
+    --shadow-sm: 0 2px 8px rgba(10,22,40,0.06);
+    --shadow-md: 0 4px 24px rgba(10,22,40,0.08);
+    --shadow-lg: 0 12px 48px rgba(10,22,40,0.14);
+    --shadow-gold: 0 0 30px rgba(200,162,70,0.2);
+    --radius: 18px;
+    --radius-sm: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--blue-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 25% 0%, rgba(0,56,184,0.2) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 100%, rgba(200,162,70,0.1) 0%, transparent 55%),
+      linear-gradient(170deg, #0A1628 0%, #0F2347 40%, #152D55 100%);
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='40,8 49,28 31,28' fill='none' stroke='rgba(200,162,70,0.035)' stroke-width='1'/%3E%3Cpolygon points='40,48 49,28 31,28' fill='none' stroke='rgba(200,162,70,0.035)' stroke-width='1'/%3E%3C/svg%3E");
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 48px 24px 24px;
+    animation: fadeUp 0.7s ease-out;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,56,184,0.15);
+    border: 1px solid rgba(74,125,215,0.2);
+    color: var(--blue-light);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 7px 18px; border-radius: 20px; margin-bottom: 24px;
+  }
+
+  .hero-tag .dot {
+    width: 6px; height: 6px;
+    background: var(--gold); border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 6vw, 56px);
+    font-weight: 700; color: var(--white);
+    line-height: 1.12; margin-bottom: 14px; letter-spacing: -0.5px;
+  }
+
+  .hero h1 .accent { color: var(--gold); }
+
+  .hero-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: rgba(232,213,160,0.8);
+    font-style: italic; margin-bottom: 32px;
+    max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.45;
+  }
+
+  /* Countdown */
+  .countdown {
+    display: inline-flex; gap: 4px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; padding: 16px 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .countdown-item { text-align: center; min-width: 56px; }
+  .countdown-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 700; color: var(--white); line-height: 1;
+    display: block;
+  }
+  .countdown-label {
+    font-size: 9px; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 2px; margin-top: 4px;
+  }
+  .countdown-sep {
+    color: rgba(200,162,70,0.3); font-size: 28px; font-weight: 300;
+    align-self: flex-start; margin-top: 2px; padding: 0 4px;
+  }
+
+  /* ===== RAV SECTION ===== */
+  .rav-section {
+    background: var(--blue-deep);
+    padding: 36px 24px 48px;
+    position: relative; z-index: 1;
+  }
+
+  .rav-card {
+    max-width: 480px; margin: 0 auto;
+    display: flex; align-items: center; gap: 20px;
+    background: linear-gradient(135deg, rgba(200,162,70,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(200,162,70,0.12);
+    border-radius: var(--radius); padding: 20px 24px;
+  }
+
+  .rav-photo {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    overflow: hidden; flex-shrink: 0;
+    border: 2.5px solid rgba(200,162,70,0.4);
+    box-shadow: var(--shadow-gold), 0 0 0 6px rgba(200,162,70,0.08);
+  }
+
+  .rav-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .rav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px; font-weight: 700; color: var(--white); margin-bottom: 1px;
+  }
+
+  .rav-title { font-size: 12px; color: var(--gold); margin-bottom: 8px; letter-spacing: 0.3px; }
+
+  .rav-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px; color: rgba(255,255,255,0.5);
+    font-style: italic; line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    .rav-card { flex-direction: column; text-align: center; padding: 24px 20px; }
+  }
+
+  /* Wave */
+  .wave-divider { background: var(--blue-deep); margin-top: -1px; }
+  .wave-divider svg { display: block; width: 100%; height: auto; }
+
+  /* ===== IMPACT STRIP ===== */
+  .impact-strip {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,56,184,0.06);
+    padding: 32px 0;
+  }
+
+  .impact-grid { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; }
+  .impact-item { text-align: center; min-width: 100px; }
+
+  .impact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 700; color: var(--blue-flag); line-height: 1;
+  }
+
+  .impact-label { font-size: 12px; color: var(--text-light); margin-top: 6px; letter-spacing: 0.3px; }
+
+  /* ===== INTRO ===== */
+  .intro { padding: 56px 0 36px; text-align: center; }
+
+  .intro-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(19px, 2.5vw, 23px); font-style: italic; color: var(--blue-mid);
+    max-width: 540px; margin: 0 auto 16px; line-height: 1.5;
+    position: relative; padding: 0 32px;
+  }
+
+  .intro-quote::before, .intro-quote::after {
+    font-size: 52px; color: var(--gold-light); font-style: normal;
+    position: absolute; line-height: 1; opacity: 0.7;
+  }
+  .intro-quote::before { content: '«'; left: 0; top: -10px; }
+  .intro-quote::after { content: '»'; right: 0; bottom: -20px; }
+
+  .intro-ref {
+    font-size: 11px; color: var(--text-light);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px;
+  }
+
+  .intro-text {
+    max-width: 620px; margin: 0 auto;
+    font-size: 15.5px; color: var(--text-mid); line-height: 1.85;
+  }
+
+  .intro-text strong { color: var(--blue-dark); font-weight: 600; }
+
+  .divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin: 40px 0;
+  }
+  .divider::before, .divider::after {
+    content: ''; width: 50px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+  }
+  .divider svg { opacity: 0.3; }
+
+  /* ===== CARDS ===== */
+  .cards-section { padding: 0 0 56px; }
+
+  .currency-toggle-section { padding: 0 0 28px; text-align: center; }
+
+  .currency-toggle {
+    display: inline-flex;
+    background: var(--white);
+    border-radius: 30px; padding: 4px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,56,184,0.06);
+  }
+
+  .currency-btn {
+    padding: 11px 28px; border-radius: 26px; border: none;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 600; color: var(--text-light);
+    cursor: pointer; transition: all 0.3s;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .currency-btn.active {
+    background: var(--blue-flag); color: var(--white);
+    box-shadow: 0 2px 12px rgba(0,56,184,0.3);
+  }
+
+  .currency-btn:not(.active):hover { color: var(--text-dark); background: var(--blue-ghost); }
+
+  .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .cards-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,56,184,0.05);
+    display: flex; flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+  }
+
+  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+  .card-strip { height: 3px; }
+  .card-strip--gold { background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-light)); }
+  .card-strip--blue { background: linear-gradient(to right, var(--blue-dark), var(--blue-flag), var(--blue-light)); }
+
+  .card-head { padding: 32px 28px 16px; text-align: center; }
+
+  .card-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .icon--gold {
+    background: linear-gradient(135deg, #FDF3DC, #F0D88A);
+    box-shadow: 0 4px 12px rgba(200,162,70,0.15);
+  }
+  .icon--gold svg { width: 28px; height: 28px; }
+
+  .icon--blue {
+    background: linear-gradient(135deg, var(--blue-pale), #A8C4F0);
+    box-shadow: 0 4px 12px rgba(0,56,184,0.1);
+  }
+  .icon--blue svg { width: 28px; height: 28px; }
+
+  .card-hebrew {
+    font-size: 18px; color: var(--gold-dark); font-weight: 600;
+    direction: rtl; margin-bottom: 4px;
+  }
+
+  .card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 700; color: var(--blue-deep); margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 14px; color: var(--text-mid); line-height: 1.7;
+    padding: 0 28px 20px; text-align: center; flex: 1;
+  }
+
+  .price-box {
+    margin: 0 28px 16px;
+    background: linear-gradient(135deg, var(--gold-glow), #FFF8EC);
+    border: 1px solid rgba(200,162,70,0.18);
+    border-radius: var(--radius-sm); padding: 22px; text-align: center;
+  }
+
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 700; color: var(--blue-deep); line-height: 1;
+  }
+
+  .price-main .currency { font-size: 24px; color: var(--text-light); margin-left: 2px; }
+  .price-sub { font-size: 12px; color: var(--text-light); margin-top: 6px; }
+
+  .amounts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 28px 16px; }
+
+  .amount-chip {
+    display: flex; align-items: center; justify-content: center;
+    padding: 15px 8px; border-radius: var(--radius-sm);
+    border: 1.5px solid rgba(0,56,184,0.1); background: var(--white);
+    color: var(--blue-deep); font-weight: 600; font-size: 18px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .amount-chip:hover {
+    border-color: var(--blue-flag); background: var(--blue-ghost); transform: scale(1.03);
+  }
+
+  .amount-chip.selected {
+    border-color: var(--blue-flag); background: var(--blue-flag); color: var(--white);
+    box-shadow: 0 4px 12px rgba(0,56,184,0.25);
+  }
+
+  .amount-chip .sym { font-size: 13px; color: var(--text-light); margin-left: 3px; }
+  .amount-chip:hover .sym { color: var(--blue-flag); }
+  .amount-chip.selected .sym { color: rgba(255,255,255,0.6); }
+
+  .card-cta { padding: 0 28px 28px; }
+
+  .btn {
+    display: block; width: 100%; padding: 16px 24px;
+    border-radius: var(--radius-sm); font-size: 15px; font-weight: 600;
+    text-decoration: none; text-align: center; cursor: pointer; border: none;
+    transition: all 0.35s cubic-bezier(0.22,1,0.36,1); letter-spacing: 0.3px;
+  }
+
+  .btn--gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white); box-shadow: 0 4px 20px rgba(200,162,70,0.3);
+  }
+  .btn--gold:hover { box-shadow: 0 8px 32px rgba(200,162,70,0.45); transform: translateY(-2px); }
+
+  .btn--blue {
+    background: linear-gradient(135deg, var(--blue-flag), var(--blue-dark));
+    color: var(--white); box-shadow: 0 4px 20px rgba(0,56,184,0.3);
+  }
+  .btn--blue:hover { box-shadow: 0 8px 32px rgba(0,56,184,0.4); transform: translateY(-2px); }
+
+  .btn-note { font-size: 11.5px; color: var(--text-light); text-align: center; margin-top: 8px; line-height: 1.4; }
+
+  /* ===== DEDICATION ===== */
+  .dedication {
+    max-width: 720px; margin: 0 auto 56px;
+    background: var(--white); border-radius: var(--radius);
+    padding: 36px 32px 8px; box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(200,162,70,0.1); text-align: center;
+  }
+
+  .dedication h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 700; color: var(--blue-deep); margin-bottom: 8px;
+  }
+
+  .dedication > p {
+    font-size: 14px; color: var(--text-mid); margin-bottom: 20px; line-height: 1.6;
+  }
+
+  .dedication-tags {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin-bottom: 28px;
+  }
+
+  .ded-tag {
+    padding: 10px 18px; border-radius: 24px;
+    background: var(--gold-glow); border: 1px solid rgba(200,162,70,0.15);
+    font-size: 13px; color: var(--text-mid); font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .ded-tag:hover { background: rgba(200,162,70,0.15); border-color: var(--gold); }
+
+  .ded-tag .hed { direction: rtl; font-size: 11px; color: var(--gold-dark); display: block; margin-top: 2px; }
+
+  .fillout-wrapper {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 20px; margin: 0 -32px;
+  }
+
+  /* ===== HALAKHA ACCORDION ===== */
+  .halakha-section {
+    max-width: 720px; margin: 0 auto 56px;
+  }
+
+  .halakha-toggle {
+    width: 100%;
+    background: linear-gradient(135deg, var(--blue-ghost), var(--white));
+    border: 1px solid rgba(0,56,184,0.08);
+    border-radius: var(--radius-sm);
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 700; color: var(--blue-dark);
+    transition: all 0.3s;
+  }
+
+  .halakha-toggle:hover { background: var(--blue-pale); }
+
+  .halakha-toggle .arrow {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s;
+    font-size: 14px; color: var(--blue-flag);
+  }
+
+  .halakha-toggle.open .arrow { transform: rotate(180deg); }
+
+  .halakha-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: var(--white);
+    border: 1px solid rgba(0,56,184,0.06);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+
+  .halakha-content.open { max-height: 400px; }
+
+  .halakha-inner {
+    padding: 20px 24px;
+  }
+
+  .halakha-inner p { font-size: 13.5px; color: var(--text-mid); line-height: 1.75; }
+  .halakha-inner p + p { margin-top: 12px; }
+
+  /* ===== TRUST ===== */
+  .trust { padding: 0 0 56px; }
+
+  .trust-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; max-width: 720px; margin: 0 auto;
+  }
+
+  @media (max-width: 600px) { .trust-grid { grid-template-columns: 1fr; } }
+
+  .trust-item {
+    background: var(--white); border-radius: var(--radius-sm);
+    padding: 28px 20px; text-align: center;
+    box-shadow: var(--shadow-sm); border: 1px solid rgba(0,56,184,0.05);
+    transition: transform 0.3s; 
+  }
+
+  .trust-item:hover { transform: translateY(-2px); }
+
+  .trust-icon {
+    width: 48px; height: 48px; margin: 0 auto 12px;
+    background: var(--blue-pale); border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .trust-icon svg { width: 24px; height: 24px; }
+
+  .trust-item h4 { font-size: 14px; font-weight: 600; color: var(--blue-deep); margin-bottom: 4px; }
+  .trust-item p { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+
+  /* ===== SHARE SECTION ===== */
+  .share-section {
+    max-width: 720px; margin: 0 auto 56px;
+    text-align: center;
+  }
+
+  .share-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700; color: var(--blue-deep); margin-bottom: 16px;
+  }
+
+  .share-buttons {
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  }
+
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 28px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.3s;
+  }
+
+  .share-btn--whatsapp { background: #25D366; color: #fff; }
+  .share-btn--whatsapp:hover { background: #1EBE57; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+
+  .share-btn--telegram { background: #0088cc; color: #fff; }
+  .share-btn--telegram:hover { background: #0077b5; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,136,204,0.3); }
+
+  .share-btn--copy { background: var(--blue-ghost); color: var(--blue-flag); border: 1px solid rgba(0,56,184,0.1); }
+  .share-btn--copy:hover { background: var(--blue-pale); transform: translateY(-2px); }
+
+  .share-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .copy-toast {
+    display: none; margin-top: 12px;
+    font-size: 13px; color: var(--gold-dark); font-weight: 500;
+  }
+
+  .copy-toast.show { display: block; animation: fadeUp 0.3s ease; }
+
+  /* ===== FLOATING CTA (MOBILE) ===== */
+  .floating-cta {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(0,56,184,0.08);
+    padding: 12px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+
+  .floating-cta-inner {
+    display: flex; gap: 10px;
+    max-width: 480px; margin: 0 auto;
+  }
+
+  .floating-cta .btn { flex: 1; padding: 13px 16px; font-size: 13px; border-radius: 10px; }
+
+  @media (max-width: 720px) {
+    .floating-cta { display: block; }
+    body { padding-bottom: 72px; }
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--blue-deep); padding: 44px 24px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .footer::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--blue-flag), var(--white), var(--blue-flag), transparent);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 4px;
+  }
+
+  .footer-sub { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .footer a { color: var(--gold-light); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .footer-pourim {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--gold);
+  }
+
+  .footer-legal {
+    margin-top: 16px; font-size: 11px;
+    color: rgba(255,255,255,0.2); line-height: 1.6;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 480px) {
+    .hero-inner { padding: 36px 16px 20px; }
+    .countdown { padding: 12px 16px; }
+    .countdown-num { font-size: 28px; }
+    .countdown-item { min-width: 48px; }
+    .impact-grid { gap: 32px; }
+    .card-head, .card-desc, .card-cta { padding-left: 20px; padding-right: 20px; }
+    .price-box, .amounts { margin-left: 20px; margin-right: 20px; }
+    .dedication { padding: 28px 16px 8px; }
+    .fillout-wrapper { margin: 0 -16px; }
+    .share-buttons { flex-direction: column; align-items: center; }
+    .share-btn { width: 100%; max-width: 280px; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="dot"></span> Campagne Pourim 5786</div>
+    <h1>Mahatsit <span class="accent">HaShekel</span><br>&amp; Matanot LaEvionim</h1>
+    <p class="hero-verse">« Les riches ne donneront pas plus et les pauvres ne donneront pas moins d'un demi-shekel »</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-days">--</span>
+        <span class="countdown-label">Jours</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-hours">--</span>
+        <span class="countdown-label">Heures</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-mins">--</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rav-section">
+    <div class="rav-card">
+      <div class="rav-photo">
+        <img src="https://github.com/David-Altar/Orotvekelim/blob/main/rvyoel.png?raw=true" alt="Rav Yoël - Fondateur Orot veKelim" loading="lazy">
+      </div>
+      <div class="rav-info">
+        <div class="rav-name">Rav Yoël</div>
+        <div class="rav-title">Fondateur de la Yeshiva Orot veKelim</div>
+        <div class="rav-quote">« Chaque don accompli avec kavana éclaire le monde d'une lumière éternelle »</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 60L60 52C120 44 240 28 360 22C480 16 600 20 720 28C840 36 960 48 1080 50C1200 52 1320 44 1380 40L1440 36V0H0V60Z" fill="#FAFBFE"/>
+  </svg>
+</div>
+
+<!-- ===== IMPACT ===== -->
+<section class="impact-strip reveal">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-num">4</div>
+        <div class="impact-label">Mitsvot de Pourim</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">2</div>
+        <div class="impact-label">Pauvres minimum à soutenir</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">100%</div>
+        <div class="impact-label">Distribué le jour de Pourim</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="intro container reveal">
+  <p class="intro-quote">
+    Il est préférable de donner davantage en Matanot LaEvionim qu'en Michloah Manot ou en festin de Pourim
+  </p>
+  <p class="intro-ref">Rambam, Hilkhot Méguila 2:17</p>
+  <p class="intro-text">
+    À Pourim, le peuple juif a été sauvé parce qu'il s'est rassemblé comme un seul homme. <strong>« Lekh knoss et kol hayehoudim »</strong> — « Va, rassemble tous les Juifs » demanda Esther à Mordékhaï. Aujourd'hui encore, donner aux nécessiteux n'est pas un simple acte de charité : c'est affirmer que nous formons <strong>une seule et même famille</strong>, où chacun porte la responsabilité de l'autre. En accomplissant le <strong>Mahatsit HaShekel</strong> et les <strong>Matanot LaEvionim</strong>, nous recréons cette unité qui a renversé le décret de Haman.
+  </p>
+</section>
+
+<div class="divider">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A246" stroke-width="1.5">
+    <polygon points="12,2 15,10 9,10"/>
+    <polygon points="12,22 9,14 15,14"/>
+  </svg>
+</div>
+
+<!-- ===== CARDS ===== -->
+<section class="cards-section container reveal">
+  <div class="currency-toggle-section">
+    <div class="currency-toggle">
+      <button class="currency-btn active" id="btn-ils" onclick="setCurrency('ils')">🇮🇱 Shekels (₪)</button>
+      <button class="currency-btn" id="btn-eur" onclick="setCurrency('eur')">🇪🇺 Euros (€)</button>
+    </div>
+  </div>
+
+  <div class="cards-grid">
+    <!-- MAHATSIT HASHEKEL -->
+    <div class="card">
+      <div class="card-strip card-strip--gold"></div>
+      <div class="card-head">
+        <div class="card-icon icon--gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A6832D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v12M8 9.5c0-1.38 1.79-2.5 4-2.5s4 1.12 4 2.5c0 2.5-8 1.25-8 3.75 0 1.38 1.79 2.5 4 2.5s4-1.12 4-2.5"/>
+          </svg>
+        </div>
+        <div class="card-hebrew">מחצית השקל</div>
+        <h2>Mahatsit HaShekel</h2>
+      </div>
+      <p class="card-desc">
+        Le demi-shekel d'argent pur — un même montant pour tous, du plus riche au plus humble. Ce don uniforme rappelle que devant Hachem, chaque âme juive a la même valeur et contribue à parts égales à l'édification du peuple.
+      </p>
+      <div class="price-box">
+        <div class="price-main" id="shekelPrice">80 <span class="currency">₪</span></div>
+        <div class="price-sub">Valeur du demi-shekel en argent pur – par personne</div>
+      </div>
+      <div class="card-cta">
+        <a href="https://mrng.to/bOs2HoLf9V" class="btn btn--gold" id="shekelBtn" target="_blank">Donner 80 ₪</a>
+        <p class="btn-note">Paiement sécurisé · Ajustez la quantité pour toute la famille</p>
+      </div>
+    </div>
+
+    <!-- MATANOT LAEVIONIM -->
+    <div class="card">
+      <div class="card-strip card-strip--blue"></div>
+      <div class="card-head">
+        <div class="card-icon icon--blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1A3A6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/>
+            <path d="m18 15-2-2"/><path d="m15 18-2-2"/>
+          </svg>
+        </div>
+        <div class="card-hebrew">מתנות לאביונים</div>
+        <h2>Matanot LaEvionim</h2>
+      </div>
+      <p class="card-desc">
+        « Kol Israel arevim ze bazé » — Tout Israël est garant l'un de l'autre. En donnant aux nécessiteux le jour de Pourim, nous réunissons le peuple en une seule famille où personne n'est laissé de côté.
+      </p>
+      <div class="amounts" id="amountsGrid">
+        <a href="https://mrng.to/gPYorosDt7" class="amount-chip" data-ils="50" data-eur="13" target="_blank">50 <span class="sym">₪</span></a>
+        <a href="https://mrng.to/gPYorosDt7" class="amount-chip" data-ils="100" data-eur="26" target="_blank">100 <span class="sym">₪</span></a>
+        <a href="https://mrng.to/gPYorosDt7" class="amount-chip" data-ils="180" data-eur="46" target="_blank">180 <span class="sym">₪</span></a>
+        <a href="https://mrng.to/gPYorosDt7" class="amount-chip" data-ils="360" data-eur="92" target="_blank">360 <span class="sym">₪</span></a>
+      </div>
+      <div class="card-cta">
+        <a href="https://mrng.to/gPYorosDt7" class="btn btn--blue" id="matanotLibre" target="_blank">Montant libre</a>
+        <p class="btn-note">Choisissez le montant de votre choix</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEDICATION + FILLOUT ===== -->
+<section class="dedication container reveal">
+  <h3>🕯️ Dédiez votre don</h3>
+  <p>Accomplissez ces Mitsvot pour la réussite, la guérison ou l'élévation de l'âme d'un proche.</p>
+  <div class="dedication-tags">
+    <div class="ded-tag">Réfoua Shéléma<span class="hed">לרפואה שלמה</span></div>
+    <div class="ded-tag">Ilouy Néshama<span class="hed">לעילוי נשמת</span></div>
+    <div class="ded-tag">Hatslakha<span class="hed">להצלחה</span></div>
+    <div class="ded-tag">Zivoug Hagoun<span class="hed">לזיווג הגון</span></div>
+  </div>
+  <div class="fillout-wrapper">
+    <div style="width:100%;height:500px;" data-fillout-id="5FrkV84rWtus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+  </div>
+</section>
+
+<!-- ===== HALAKHA ACCORDION ===== -->
+<div class="halakha-section container reveal">
+  <button class="halakha-toggle" id="halakhaToggle" onclick="toggleHalakha()">
+    <span>📖 Rappel halakhique</span>
+    <span class="arrow">▼</span>
+  </button>
+  <div class="halakha-content" id="halakhaContent">
+    <div class="halakha-inner">
+      <p><strong>Mahatsit HaShekel :</strong> On le donne avant la lecture de la Méguila, à l'office de Minha du Taanit Esther (lundi 2 mars). L'usage est de donner l'équivalent d'un demi-shekel d'argent pur par personne (homme adulte). Certains ont l'usage de donner aussi pour les enfants.</p>
+      <p><strong>Matanot LaEvionim :</strong> Obligation le jour de Pourim (mardi 3 mars). On donne au minimum à deux pauvres. Quiconque tend la main, on lui donne (Choulhan Aroukh OH 694:3). La Yeshiva OVK remet vos dons le jour même de Pourim.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRUST ===== -->
+<section class="trust container reveal">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0038B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <h4>Paiement sécurisé</h4>
+      <p>Transactions cryptées via Stripe</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0038B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <h4>Reçu Seif 46</h4>
+      <p>Reçu fiscal israélien automatique. Cerfa sur demande à info@orotvekelim.com</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0038B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <h4>100% reversé</h4>
+      <p>Intégralement distribué aux nécessiteux le jour de Pourim</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHARE ===== -->
+<section class="share-section container reveal">
+  <h3>Partagez cette Mitsva</h3>
+  <div class="share-buttons">
+    <a href="https://wa.me/?text=Accomplissez%20les%20Mitsvot%20de%20Pourim%20avec%20Orot%20veKelim%20%3A%20Mahatsit%20HaShekel%20%26%20Matanot%20LaEvionim%20%F0%9F%95%8E%20https%3A%2F%2Fdavid-altar.github.io%2FOrotvekelim%2Fpourim-campagne-v7.html" target="_blank" class="share-btn share-btn--whatsapp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="https://t.me/share/url?url=https://david-altar.github.io/Orotvekelim/pourim-campagne-v7.html&text=Accomplissez les Mitsvot de Pourim avec Orot veKelim 🕎" target="_blank" class="share-btn share-btn--telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Telegram
+    </a>
+    <button class="share-btn share-btn--copy" onclick="copyLink()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copier le lien
+    </button>
+  </div>
+  <div class="copy-toast" id="copyToast">✓ Lien copié !</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">Orot veKelim</div>
+  <div class="footer-sub">Yeshiva Orot veKelim · <a href="https://www.orotvekelim.com">orotvekelim.com</a></div>
+  <div class="footer-pourim">!פורים שמח · Pourim Saméah</div>
+  <div class="footer-legal">Association Orot veKelim · Pour toute question : info@orotvekelim.com</div>
+</footer>
+
+<!-- ===== FLOATING CTA MOBILE ===== -->
+<div class="floating-cta" id="floatingCta">
+  <div class="floating-cta-inner">
+    <a href="https://mrng.to/bOs2HoLf9V" class="btn btn--gold" id="floatShekel" target="_blank">Mahatsit 80 ₪</a>
+    <a href="https://mrng.to/gPYorosDt7" class="btn btn--blue" id="floatMatanot" target="_blank">Matanot LaEvionim</a>
+  </div>
+</div>
+
+<!-- FILLOUT -->
+<script src="https://server.fillout.com/embed/v1/"></script>
+
+<script>
+  // ===== CONFIG =====
+  const CONFIG = {
+    shekelPerPerson: { ils: 80, eur: 20 },
+    matanot: [
+      { ils: 50, eur: 13 },
+      { ils: 100, eur: 26 },
+      { ils: 180, eur: 46 },
+      { ils: 360, eur: 92 }
+    ],
+    links: {
+      shekel: { ils: 'https://mrng.to/bOs2HoLf9V', eur: 'https://donate.stripe.com/14k2b696v7Vzg006pg' },
+      matanot: { ils: 'https://mrng.to/gPYorosDt7', eur: 'https://donate.stripe.com/28o9Dy0zZ8ZD6pq291' }
+    }
+  };
+
+  let currency = 'ils';
+
+  function setCurrency(cur) {
+    currency = cur;
+    document.getElementById('btn-ils').classList.toggle('active', cur === 'ils');
+    document.getElementById('btn-eur').classList.toggle('active', cur === 'eur');
+    updateAll();
+  }
+
+  function sym() { return currency === 'ils' ? '₪' : '€'; }
+
+  function updateAll() {
+    const s = sym();
+    const pp = CONFIG.shekelPerPerson[currency];
+    const shekelLink = CONFIG.links.shekel[currency];
+    const matanotLink = CONFIG.links.matanot[currency];
+
+    document.getElementById('shekelPrice').innerHTML = `${pp} <span class="currency">${s}</span>`;
+    document.getElementById('shekelBtn').textContent = `Donner ${pp} ${s}`;
+    document.getElementById('shekelBtn').href = shekelLink;
+
+    document.querySelectorAll('.amount-chip').forEach((chip, i) => {
+      const val = CONFIG.matanot[i][currency];
+      chip.innerHTML = `${val} <span class="sym">${s}</span>`;
+      chip.href = matanotLink;
+    });
+
+    document.getElementById('matanotLibre').href = matanotLink;
+
+    // Floating CTA
+    document.getElementById('floatShekel').textContent = `Mahatsit ${pp} ${s}`;
+    document.getElementById('floatShekel').href = shekelLink;
+    document.getElementById('floatMatanot').href = matanotLink;
+  }
+
+  // ===== COUNTDOWN =====
+  function updateCountdown() {
+    const pourim = new Date('2026-03-02T17:30:00+02:00');
+    const now = new Date();
+    const diff = pourim - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '<span style="color:var(--gold);font-family:Cormorant Garamond,serif;font-size:24px;">!פורים שמח</span>';
+      return;
+    }
+    document.getElementById('cd-days').textContent = Math.floor(diff / (1000*60*60*24));
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  // ===== CHIP SELECTION =====
+  document.querySelectorAll('.amount-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.amount-chip').forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+
+  // ===== HALAKHA ACCORDION =====
+  function toggleHalakha() {
+    document.getElementById('halakhaToggle').classList.toggle('open');
+    document.getElementById('halakhaContent').classList.toggle('open');
+  }
+
+  // ===== COPY LINK =====
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  }
+
+  // ===== SCROLL REVEAL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ===== FLOATING CTA VISIBILITY =====
+  const floatingCta = document.getElementById('floatingCta');
+  const cardsSection = document.querySelector('.cards-section');
+  const floatObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      floatingCta.style.transform = entry.isIntersecting ? 'translateY(100%)' : 'translateY(0)';
+      floatingCta.style.transition = 'transform 0.3s ease';
+    });
+  }, { threshold: 0.3 });
+  if (cardsSection) floatObserver.observe(cardsSection);
+
+  // Init
+  setTimeout(() => updateAll(), 300);
+</script>
+
+</body>
+</html>
